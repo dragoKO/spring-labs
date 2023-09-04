@@ -7,9 +7,10 @@ import com.paneraBread.model.Recipe;
 import com.paneraBread.model.RecipeType;
 import com.paneraBread.proxy.ShareService;
 import com.paneraBread.repository.RecipeRepository;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,21 +18,29 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@Component
 public class RecipeServiceImpl implements RecipeService {
+
     private ShareService shareService;
     private RecipeRepository recipeRepository;
 
+    private final Faker faker = new Faker();
+
+    public RecipeServiceImpl(@Qualifier("Instagram") ShareService shareService, @Qualifier("PostgreSQL") RecipeRepository recipeRepository) {
+        this.shareService = shareService;
+        this.recipeRepository = recipeRepository;
+    }
+
     @Override
     public boolean prepareRecipe() {
-        Faker faker = new Faker();
+
 
         Recipe recipe = new Recipe();
 
         recipe.setAccountId(UUID.randomUUID());
         recipe.setName(faker.food().dish());
         recipe.setDuration(faker.random().nextInt(30, 60));
-        recipe.setPreparation("Grilled");
+        recipe.setPreparation(randomPreparationType());
 
         List<Ingredient> ingredients = new ArrayList<>();
         for (int i = 0; i < faker.random().nextInt(1, 25); i++) {
@@ -56,5 +65,21 @@ public class RecipeServiceImpl implements RecipeService {
 
 
         return true;
+    }
+
+    private String randomPreparationType(){
+        List<String> preparationTypes = new ArrayList<>();
+        preparationTypes.add("Grilled");
+        preparationTypes.add("Baked");
+        preparationTypes.add("Fried");
+        preparationTypes.add("Boiled");
+        preparationTypes.add("Steamed");
+        preparationTypes.add("Sauteed");
+        preparationTypes.add("Roasted");
+
+        int randomIndex = faker.random().nextInt(preparationTypes.size());
+
+        return preparationTypes.get(randomIndex);
+
     }
 }

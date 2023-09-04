@@ -2,11 +2,13 @@ package com.paneraBread.repository;
 
 
 import com.paneraBread.model.Recipe;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component // this class dependency itself
+@Component
 @Primary
+@Qualifier("Oracle")
 public class OracleDBRecipeRepository implements RecipeRepository {
     @Override
     public boolean saveRecipe(Recipe recipe) {
