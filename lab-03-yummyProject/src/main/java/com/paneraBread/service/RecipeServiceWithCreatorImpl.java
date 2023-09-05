@@ -25,8 +25,6 @@ public class RecipeServiceWithCreatorImpl implements RecipeService{
     private RecipeCreatorProperties recipeCreatorProperties;
 
 
-    private final Faker faker = new Faker();
-
     public RecipeServiceWithCreatorImpl( @Qualifier("FB")ShareService shareService, @Qualifier("ORACLE") RecipeRepository recipeRepository,RecipeCreatorProperties recipeCreatorProperties) {
         this.shareService = shareService;
         this.recipeRepository = recipeRepository;
@@ -69,21 +67,7 @@ public class RecipeServiceWithCreatorImpl implements RecipeService{
         return true;
     }
 
-    private String randomPreparationType(){
-        List<String> preparationTypes = new ArrayList<>();
-        preparationTypes.add("Grilled");
-        preparationTypes.add("Baked");
-        preparationTypes.add("Fried");
-        preparationTypes.add("Boiled");
-        preparationTypes.add("Steamed");
-        preparationTypes.add("Sauteed");
-        preparationTypes.add("Roasted");
 
-        int randomIndex = faker.random().nextInt(preparationTypes.size());
-
-        return preparationTypes.get(randomIndex);
-
-    }
     @PreDestroy
     public void preDestroy() {
         System.out.println(recipeCreatorProperties);

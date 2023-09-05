@@ -21,9 +21,6 @@ public class RecipeServiceImpl implements RecipeService {
     private ShareService shareService;
     private RecipeRepository recipeRepository;
 
-
-    private final Faker faker = new Faker();
-
     public RecipeServiceImpl(@Qualifier("INSTAGRAM") ShareService shareService, @Qualifier("POSTGRES_SQL") RecipeRepository recipeRepository) {
         this.shareService = shareService;
         this.recipeRepository = recipeRepository;
@@ -31,8 +28,6 @@ public class RecipeServiceImpl implements RecipeService {
 
     @Override
     public boolean prepareRecipe() {
-
-
         Recipe recipe = new Recipe();
 
         recipe.setAccountId(UUID.randomUUID());
@@ -65,19 +60,4 @@ public class RecipeServiceImpl implements RecipeService {
         return true;
     }
 
-    private String randomPreparationType(){
-        List<String> preparationTypes = new ArrayList<>();
-        preparationTypes.add("Grilled");
-        preparationTypes.add("Baked");
-        preparationTypes.add("Fried");
-        preparationTypes.add("Boiled");
-        preparationTypes.add("Steamed");
-        preparationTypes.add("Sauteed");
-        preparationTypes.add("Roasted");
-
-        int randomIndex = faker.random().nextInt(preparationTypes.size());
-
-        return preparationTypes.get(randomIndex);
-
-    }
 }
