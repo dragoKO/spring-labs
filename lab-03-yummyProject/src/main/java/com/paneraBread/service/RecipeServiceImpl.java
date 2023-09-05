@@ -24,7 +24,7 @@ public class RecipeServiceImpl implements RecipeService {
 
     private final Faker faker = new Faker();
 
-    public RecipeServiceImpl(@Qualifier("Instagram") ShareService shareService, @Qualifier("PostgreSQL") RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(@Qualifier("INSTAGRAM") ShareService shareService, @Qualifier("POSTGRES_SQL") RecipeRepository recipeRepository) {
         this.shareService = shareService;
         this.recipeRepository = recipeRepository;
     }

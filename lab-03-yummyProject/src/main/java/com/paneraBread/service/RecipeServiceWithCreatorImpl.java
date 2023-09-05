@@ -27,7 +27,7 @@ public class RecipeServiceWithCreatorImpl implements RecipeService{
 
     private final Faker faker = new Faker();
 
-    public RecipeServiceWithCreatorImpl(@Qualifier("Facebook") ShareService shareService, @Qualifier("Oracle") RecipeRepository recipeRepository,RecipeCreatorProperties recipeCreatorProperties) {
+    public RecipeServiceWithCreatorImpl( @Qualifier("FB")ShareService shareService, @Qualifier("ORACLE") RecipeRepository recipeRepository,RecipeCreatorProperties recipeCreatorProperties) {
         this.shareService = shareService;
         this.recipeRepository = recipeRepository;
         this.recipeCreatorProperties=recipeCreatorProperties;

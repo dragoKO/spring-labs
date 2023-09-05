@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Primary
-@Qualifier("Oracle")
+@Qualifier("ORACLE")
 public class OracleDBRecipeRepository implements RecipeRepository {
     @Override
     public boolean saveRecipe(Recipe recipe) {
-        System.out.println("Store recipe in Oracle database: " + recipe);
+        System.out.println("Store recipe in ORACLE database: " + recipe);
         return true;
     }
 }

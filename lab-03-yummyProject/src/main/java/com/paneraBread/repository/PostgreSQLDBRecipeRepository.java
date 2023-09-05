@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("PostgreSQL")
+@Qualifier("POSTGRES_SQL")
 public class PostgreSQLDBRecipeRepository implements RecipeRepository {
     @Override
     public boolean saveRecipe(Recipe recipe) {
