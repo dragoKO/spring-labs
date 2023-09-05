@@ -19,7 +19,17 @@ public class YummyApp {
         }
 
 
-
-
+        System.out.println("==================================================================");
+        for (int i = 0; i < 5; i++) {
+            RecipeServiceWithCreatorImpl recipeServiceWithCreator = context.getBean(RecipeServiceWithCreatorImpl.class);
+            recipeServiceWithCreator.prepareRecipe();
+            System.out.println();
+        }
+        ((AnnotationConfigApplicationContext)context).close(); // PreDestroy triggered
     }
+
+
+
+
+
 }
