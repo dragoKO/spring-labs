@@ -6,9 +6,11 @@ import com.paneraBread.proxy.ShareService;
 import com.paneraBread.repository.RecipeRepository;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -16,17 +18,19 @@ import java.util.UUID;
 @Getter
 @Setter
 @Component
-public class RecipeServiceImpl implements RecipeService {
-
+@ToString
+public class RecipeServiceWithCreatorImpl implements RecipeService{
     private ShareService shareService;
     private RecipeRepository recipeRepository;
+    private RecipeCreatorProperties recipeCreatorProperties;
 
 
     private final Faker faker = new Faker();
 
-    public RecipeServiceImpl(@Qualifier("Instagram") ShareService shareService, @Qualifier("PostgreSQL") RecipeRepository recipeRepository) {
+    public RecipeServiceWithCreatorImpl(@Qualifier("Facebook") ShareService shareService, @Qualifier("Oracle") RecipeRepository recipeRepository,RecipeCreatorProperties recipeCreatorProperties) {
         this.shareService = shareService;
         this.recipeRepository = recipeRepository;
+        this.recipeCreatorProperties=recipeCreatorProperties;
     }
 
     @Override
@@ -79,5 +83,9 @@ public class RecipeServiceImpl implements RecipeService {
 
         return preparationTypes.get(randomIndex);
 
+    }
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println(recipeCreatorProperties);
     }
 }
