@@ -1,9 +1,9 @@
-package com.cydeo.config;
+package com.paneraBread.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "com.cydeo")
-public class ConfigApp {
+@ComponentScan(basePackages = "com.paneraBread")
+public class YummyConfig {
 }

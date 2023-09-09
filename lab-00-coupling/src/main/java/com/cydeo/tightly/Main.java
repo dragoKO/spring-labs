@@ -1,5 +1,4 @@
-package com.cydeo;
-import com.cydeo.tightly.BalanceService;
+package com.cydeo.tightly;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -17,7 +16,7 @@ public class Main {
         BalanceService balanceService =
                 new BalanceService(customerBalance, giftCardBalance);
 
-        System.out.println(balanceService.checkoutFromCustomerBalance(new BigDecimal(80)));
+        System.out.println(balanceService.checkoutFromCustomerBalance(new BigDecimal(150)));
         System.out.println(balanceService.checkoutFromGiftBalance(new BigDecimal(80)));
     }
 
