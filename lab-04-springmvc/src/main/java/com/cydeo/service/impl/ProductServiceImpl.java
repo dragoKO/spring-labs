@@ -1,7 +1,7 @@
-package com.cydeo.lab04springmvc.service.impl;
+package com.cydeo.service.impl;
 
-import com.cydeo.lab04springmvc.model.Product;
-import com.cydeo.lab04springmvc.service.ProductService;
+import com.cydeo.model.Product;
+import com.cydeo.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;

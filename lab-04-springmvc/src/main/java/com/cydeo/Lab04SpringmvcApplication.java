@@ -1,7 +1,7 @@
-package com.cydeo.lab04springmvc;
+package com.cydeo;
 
-import com.cydeo.lab04springmvc.service.CartService;
-import com.cydeo.lab04springmvc.service.ProductService;
+import com.cydeo.service.CartService;
+import com.cydeo.service.ProductService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
