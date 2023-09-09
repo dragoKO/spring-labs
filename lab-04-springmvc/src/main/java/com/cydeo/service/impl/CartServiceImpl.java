@@ -1,8 +1,8 @@
-package com.cydeo.lab04springmvc.service.impl;
+package com.cydeo.service.impl;
 
-import com.cydeo.lab04springmvc.model.Cart;
-import com.cydeo.lab04springmvc.model.CartItem;
-import com.cydeo.lab04springmvc.service.CartService;
+import com.cydeo.model.Cart;
+import com.cydeo.model.CartItem;
+import com.cydeo.service.CartService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static com.cydeo.lab04springmvc.service.impl.ProductServiceImpl.PRODUCT_LIST;
+import static com.cydeo.service.impl.ProductServiceImpl.PRODUCT_LIST;
 
 @Service
 public class CartServiceImpl implements CartService {

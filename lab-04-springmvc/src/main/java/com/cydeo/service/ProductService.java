@@ -1,6 +1,6 @@
-package com.cydeo.lab04springmvc.service;
+package com.cydeo.service;
 
-import com.cydeo.lab04springmvc.model.Product;
+import com.cydeo.model.Product;
 
 import java.util.List;
 
