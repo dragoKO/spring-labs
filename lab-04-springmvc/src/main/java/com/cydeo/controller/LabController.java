@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LabController {
 
-    @RequestMapping("/list")
+    @RequestMapping("/labs")
     public String carInfo(Model model) {
 
         model.addAttribute("firstLab", "lab01");
